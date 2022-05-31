@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrarse</title>
+  <link rel="stylesheet" href="{% static 'Ventasgamer\css\formulario.css' %}">
+  <script src="https://kit.fontawesome.com/c5df39abaa.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <section class="bg">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-4">
+          <div class="form-wrap">
+            <div class="form-heading">
+              <h1>Registrarse</h1>
+            </div>
+            <form name="regForm" id="regForm">
+              <div class="form-group">
+                <div class="input-area">
+                  <input type="text" class="form-control" id="name" name="" placeholder="Nombre">
+                  <p id="p1"></p>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-area">
+                  <input type="email" class="form-control" id="email" name="" placeholder="Correo electronico">
+                  <p id="p2"></p>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-area">
+                  <input type="password" class="form-control" id="password" name="" placeholder="Contraseña">
+                  <p id="p3"></p>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-area">
+                  <input type="password" class="form-control" id="password" name="" placeholder="Repetir contraseña">
+                  <p id="p3"></p>
+                </div>
+              </div>
+              <div class="form-group">
+
+                <input type="submit" class="btn btn-primary btn-block" id="submit" name="" placeholder="Registrase">
+
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="{% static 'Ventasgamer\js\registro.js' %}"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</body>
+
+</html>

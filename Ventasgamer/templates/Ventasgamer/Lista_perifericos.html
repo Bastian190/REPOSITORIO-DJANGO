@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Periferico</title>
+    <link rel="stylesheet" href="{% static 'Ventasgamer\css\lista.css' %}">
+<body>
+    <hr>
+    <table border="1">
+        <tr>
+            <th>idperiferico</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>nombre</th>
+            <th>precio</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+        </tr>
+        {% for p in Periferico %}
+        <tr>
+            <td>{{p.idperiferico}}</td>
+            <td>{{p.marca}}</td>
+            <td>{{p.modelo}}</td>
+            <td>{{p.nombre}}</td>
+            <td>{{p.precio}}</td>
+            <td><a href="{% url 'modificar_periferico' p.idperiferico %}">Mod</a></td>
+            <td><a href="{% url 'eliminar_periferico' p.idperiferico %}">X</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <hr>
+    
+    <a href="{% url 'agregar_Periferico' %}">Agregar Vehículo</a>
+</body>
+</html>
