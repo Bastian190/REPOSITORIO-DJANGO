@@ -15,5 +15,4 @@ urlpatterns = [
     path('modificar_periferico/<id>',modificar_Periferico,name="modificar_periferico"),
     path('eliminar_periferico/<id>',eliminar_Periferico,name="eliminar_periferico"),
     path('lista',Lista,name="lista"),
-    
 ]
