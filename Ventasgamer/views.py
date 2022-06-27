@@ -101,7 +101,6 @@ def logiin (request):
         'ini': UsuarioForm()
     }
     if (request.method == 'POST'):
-        token = Token()
         usu1 = request.POST.get('username')
         pas= request.POST.get('password')
         user = authenticate(request, username=usu1, password=pas)
