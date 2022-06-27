@@ -111,13 +111,5 @@ def logiin (request):
             print(usu1, pas)
     return render(request,'Ventasgamer/login.html', datos)
 
-def logout (request):
-    usu1 = request.POST.get('username')
-    pas= request.POST.get('password')
-    user = authenticate(request, username=usu1, password=pas)
-    if user is not None:
-        logout(request, user)
-        
-        return render(request,'Ventasgamer/index.html')
 
 
