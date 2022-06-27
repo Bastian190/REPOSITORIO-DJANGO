@@ -1,4 +1,6 @@
 {% load static %}
+{% load socialaccount %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,35 +14,29 @@
 </head>
 
 <body>
-  <div class="wrapper">
-    <header>Iniciar sesión</header>
-    <form action="#">
-      <div class="field email">
-        <div class="input-area">
-          <input type="text" placeholder="Correo electronico">
-          <i class="icon fas fa-envelope"></i>
-          <i class="error error-icon fas fa-exclamation-circle"></i>
-        </div>
-        <div class="error error-txt">El correo electrónico no puede estar en blanco</div>
-      </div>
-      <div class="field password">
-        <div class="input-area">
-          <input type="password" placeholder="Contraseña">
-          <i class="icon fas fa-lock"></i>
-          <i class="error error-icon fas fa-exclamation-circle"></i>
-        </div>
-        <div class="error error-txt">La contraseña no puede estar en blanco</div>
-      </div>
-      <div class="pass-txt"><a href="#">Olvidaste tu contraseña?</a></div>
-      <input type="submit" value="Iniciar sesión">
-    </form>
-    <div class="sign-txt">No estas registrado? <a href="{% url 'registro' %}">Registrate ahora</a></div>
+  <section class="inicio">
+    <fieldset>
+        
+        
+        <form method="POST" action="" class="formulario box-shadow">
+            {% csrf_token %}
+            <h1>
+                Bienvenido
+            </h1>
+            <div class="form_group" id="formulario">
+                {{ini.as_table}}
+            </div>
+            <br>
+            <button type="submit" id="is">Iniciar Sesión</button>
+            <div>{{ mensaje }}</div>
+        </form>
+    </fieldset>
+
+  <div class="sign-txt">No estas registrado? <a href="{% url 'registro' %}">Registrate ahora</a></div>
+    <a href="{% provider_login_url 'google' %}">Iniciar sesion con Google</a>
   </div>
-
+</section>
   <script src="{% static 'Ventasgamer\js\validadorinicio.js' %}"></script>
-
-
-
 </body>
 
 </html>

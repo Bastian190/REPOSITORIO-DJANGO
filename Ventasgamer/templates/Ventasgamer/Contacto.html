@@ -1,82 +1,40 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
-        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-    <title>Formulario de contacto</title>
-    <link rel="stylesheet" href="{% static 'Ventasgamer\css\estiloFormulario.css' %}">
-</head>
-
-<body>
-    <header>
-        <nav>
-            <input type="checkbox" id="check">
-            <label for="check" class="checkbtn">
-                <i class="fas fa-bars"></i>
-            </label>
-            <a href="#" class="enlace">
-                <img src="img/logotienda.jpg" alt="" class="logo">
-
-            </a>
-            <ul>
-                <li><a class="active" href="{% url 'home' %} ">Inicio</a></li>
-                <li><a href="">Tienda</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li><a href="{% url 'contacto' %}">Contacto</a></li>
-                <li><a href="{% url 'login' %}">inicar sesion</a></li>
-            </ul>
-        </nav>
-    </header>
-
+{% block contenido %}
+{% load crispy_forms_tags %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> 
+<link rel="stylesheet" href="{%static 'Ventasgamer/css/estiloFormulario.css'%}">
+<link rel="stylesheet" href="{%static 'Ventasgamer/css/formulario2.css'%}">
     <div class="contenedor">
 
         <h1>Formulario Contacto</h1>
-
-        <div class="contenido">
-
-            <div class="info">
-
-                <div class="col">
-                    <i class="icono fas fa-map-marker-alt"></i>
-                    <p>Av. 26 de julio Nro. 8 Ciudad - País</p>
-                </div>
-
-                <div class="col">
-                    <i class="icono fas fa-envelope"></i>
-                    <p>consulta@correo.com</p>
-                </div>
-
-                <div class="col">
-                    <i class="icono fas fa-phone"></i>
-                    <p>(01) 6262-222 <br> (01) 3343-543</p>
-                </div>
-
-                <div class="redes-s">
-
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-
-                </div>
-
-            </div>
-
-            <form action="enviado.html" method="GET" class="formulario">
-
-                <input type="text" name="nombre" placeholder="Nombre" id="nombre">
-                <input type="text" name="correo" placeholder="Correo electróico" id="correo">
-                <input type="text" name="asunto" placeholder="Asunto" id="asunto">
-                <textarea name="mensaje" id="mensaje" placeholder="Mensaje"></textarea>
-                <button type="button" onclick="validarFormulario()">Enviar</button>
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
 
 
-            </form>
+
+                        <form action="" class="" method="POST">
+                            {% csrf_token %}
+                            {{ form | crispy}}
+
+                            <br>
+                            <div class="d-flex justify-content-end">
+                            
+                            <input type="reset" value="cancelar" class="btn btn-secondary">
+                            &nbsp;
+                            <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
+                            </div>  
+                
+                        </form>
+                        {{mensaje}}
+                    </div>
+
+                
+
+        </div>       
+        <br>
+        <br>
+        <br>
             <div>
                 <H1>¡Encuentranos!</H1>
             <iframe
@@ -85,11 +43,6 @@
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
+    
 
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="{% static 'Ventasgamer\js\app.js' %}"></script>
-</body>
-
-</html>
+    {% endblock %}

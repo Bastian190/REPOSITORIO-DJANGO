@@ -23,7 +23,7 @@ form.onsubmit = (e)=>{
       eField.classList.add("error");
       eField.classList.remove("valid");
       let errorTxt = eField.querySelector(".error-txt");
-      (eInput.value != "") ? errorTxt.innerText = "Enter a valid email address" : errorTxt.innerText = "Email can't be blank";
+      (eInput.value != "") ? errorTxt.innerText = "Usa un correo valido" : errorTxt.innerText = "El correo electrónico no puede estar en blanco";
     }else{
       eField.classList.remove("error");
       eField.classList.add("valid");

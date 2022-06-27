@@ -1,4 +1,6 @@
 {% load static %}
+{% load socialaccount %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,51 +15,28 @@
 </head>
 
 <body>
-  <section class="bg">
-    <div class="container">
-      <div class="row d-flex justify-content-center">
-        <div class="col-md-4">
-          <div class="form-wrap">
-            <div class="form-heading">
-              <h1>Registrarse</h1>
+  <section id="registro">
+    <fieldset>
+        <form method="post" action="" class="formulario paracontacto">
+            {% csrf_token %}
+            
+            <div class="form_group" id="formulario">
+                {{forma | crispy}}
+
+                <div>
+                    <input type="checkbox" name="valido" id="validar">
+                    <label id="validar1">¿Acepta los términos y condiciones?
+
+                    </label>
+                </div>
             </div>
-            <form name="regForm" id="regForm">
-              <div class="form-group">
-                <div class="input-area">
-                  <input type="text" class="form-control" id="name" name="" placeholder="Nombre">
-                  <p id="p1"></p>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-area">
-                  <input type="email" class="form-control" id="email" name="" placeholder="Correo electronico">
-                  <p id="p2"></p>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-area">
-                  <input type="password" class="form-control" id="password" name="" placeholder="Contraseña">
-                  <p id="p3"></p>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-area">
-                  <input type="password" class="form-control" id="password" name="" placeholder="Repetir contraseña">
-                  <p id="p3"></p>
-                </div>
-              </div>
-              <div class="form-group">
-
-                <input type="submit" class="btn btn-primary btn-block" id="submit" name="" placeholder="Registrase">
-
-              </div>
-
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+            <br>
+            <input type="submit" value= "enviar"onclick="todos()">
+            <div>{{ mensaje }}</div>
+            
+        </form>
+    </fieldset>
+</section>
 
 
 

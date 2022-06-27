@@ -1,0 +1,28 @@
+
+input[type=text], input[type=email],
+input[type=number], select, textarea {
+
+    width: 100%;
+    padding: 5px;
+
+}
+
+textarea {
+    resize: none;
+}
+
+.button {
+    padding:5px 10px;
+    color: white;
+    background-color: #2B6CB0;
+    border: none;
+    border-radius: 5px;
+}
+
+.formulario_contacto {
+    width: 500px;
+    margin-top:50px;
+}
+.button{
+    color: blueviolet;
+}
