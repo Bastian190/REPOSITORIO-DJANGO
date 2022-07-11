@@ -1,6 +1,6 @@
 from django.urls import path, include
 from .views import home, contacto, monitores, logiin, registro, Lista
-from .views import form_periferico, modificar_Periferico, eliminar_Periferico
+from .views import form_periferico, modificar_Periferico, eliminar_Periferico, tienda
 from django.contrib.auth.views import LogoutView
 
 
@@ -8,7 +8,7 @@ from django.contrib.auth.views import LogoutView
 urlpatterns = [
     path('',home,name="home"),
     path('contacto/', contacto, name="contacto"),
-    path('monitores',monitores,name="monitores"),
+    path('monitores/', monitores, name="monitores"),
     path('login',logiin,name="login"),
     path('registro',registro,name="registro"),
     path('agregar_Periferico',form_periferico,name="agregar_Periferico"),
@@ -17,4 +17,5 @@ urlpatterns = [
     path('lista',Lista,name="lista"),
     path('logout', LogoutView.as_view()),
     path('accounts/', include('allauth.urls')),
+      path('tienda/', tienda, name="tienda"),
 ]

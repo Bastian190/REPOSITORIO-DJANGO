@@ -1,0 +1,65 @@
+.galeria{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.galeria img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+#contenido{
+    width: 70%;
+    margin: auto;
+    max-width: 1280px;
+    min-height: 100vh;
+}
+
+.productos{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.producto{
+    width: 25%;
+    margin-top: 25px;
+}
+
+h1{
+    margin-left: 25px;
+    font-size: 150%;
+    font-style: italic;
+}
+
+h5{
+    margin-left: 15px;
+    font-size: 120%;
+}
+
+span{
+    margin-left: 15px;
+}
+
+.producto img{
+    width: 70%;
+    height: 50%;
+}
+
+.producto .detalle{
+    margin: auto;
+    display: block;
+
+}
+
+.producto .contenedor_producto{
+    height: 600px;
+    width: 400px;
+    box-shadow: 0 0 7px #111;
+    margin: 30px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}

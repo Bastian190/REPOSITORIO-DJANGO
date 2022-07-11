@@ -1,4 +1,5 @@
 {% load static %} 
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -22,16 +23,21 @@
             <label for="check" class="checkbtn">
                 <i class="fas fa-bars"></i>
             </label>
-            <a href="#" class="enlace">
+            <a href="{% url 'home' %}" class="enlace">
                 <img src="{% static 'Ventasgamer\img\logotienda.jpg' %}" alt="" class="logo">
 
             </a>
             <ul>
                 <li><a class="active" href="{% url 'home' %} ">Inicio</a></li>
-                <li><a href="">Tienda</a></li>
+                <li><a href="{% url 'tienda' %} ">Tienda</a></li>
                 <li><a href="#">Servicios</a></li>
                 <li><a href="{% url 'contacto' %}">Contacto</a></li>
-                <li><a href="{% url 'login' %}">inicar sesion</a></li>
+                {% if user.is_authenticated %}
+                    <li><p>Bienvenido {{ user.username }}</p></li>
+                    <li><a href="{%url 'logout' %}">Cerrar Sesion</a>
+                {% else %}
+                    <li><a href="{% url 'login' %}">inicar sesion</a></li>
+                {% endif %}
             </ul>
         </nav>
 

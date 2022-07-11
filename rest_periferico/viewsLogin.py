@@ -7,11 +7,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password
 from rest_framework.authtoken.models import Token
-from Ventasgamer.forms import UsuarioForm
+from Ventasgamer.forms import LoginForm
 
 @api_view(['POST'])
 def login(request):
-    data = UsuarioForm(request.POST)
+    data = LoginForm(request.POST)
     v_username = data['username']
     v_password = data['password']
     try:

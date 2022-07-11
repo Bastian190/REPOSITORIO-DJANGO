@@ -1,204 +1,130 @@
-body {
+.producto{
+  width: 25%;
+  margin-top: 25px;
+}
+.productos{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+h1{
+  text-align: center;
+  font-size: 150%;
+  font-style: italic;
+}
+h5{
+  margin-left: 10px;
+  font-size: 120%;
+}
+.span{
+  margin-left: 15px;
+}
+.producto img{
+  width: 70%;
+  height: 50%;
+}
+.producto .detalle{
+  margin: auto;
+  display: block;
+  margin-top: 10px;
+}
+.producto .contenedor_producto{
+  height: 500px;
+  width: 300px;
+  box-shadow: 0 0 7px #111;
+  margin: 30px 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-
+  flex-wrap:wrap;
 }
-* {
-  padding: 0;
-  margin: 0;
+
+#contenido{
+  width: 80%;
+  margin: auto;
+  max-width: 1280px;
+  min-height: 100vh;
+}
+
+.producto .detalle a{
   text-decoration: none;
-  list-style: none;
-  box-sizing: border-box;
+  color: #111;
+  box-shadow: 0 0 2px rgb(48, 0, 77);
 }
-
-.conte_parent {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
+#agregar a{
+  text-decoration: none;
+  color: white;
 
 }
+#agregar{
+  margin-left: 600px;
+}
 
-.contenedor {
-  height: 400px;
-  width: 350px;
+.galeria {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.galeria img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+
+/*CONTENIDO PRINCIPAL*/
+
+#contenido {
+    width: 70%;
+    margin:auto;
+    max-width: 1280px;
+    min-height: 100vh;
+}
+
+
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.producto {
+    width: 25%;
+    margin-top: 25px;
+    
+}
+h1{
+    margin-left: 25px;
+    font-size: 150%;
+    font-style: italic;
+}
+h5{
+    margin-left: 15px;
+    font-size: 120%;
+    
+}
+
+span{
+    margin-left: 15px;
+}
+.producto img {
+    width: 70%;
+    height: 50%;
+}
+
+.producto .detalle {
+    margin: auto;
+  display: block;
+}
+
+.producto .contenedor_producto {
+  height: 600px;
+  width: 400px;
   box-shadow: 0 0 7px #111;
   margin: 30px 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-
 }
 
-.contenedor .card {
-  height: 150px;
-  width: 100%;
-  margin-bottom: 100px;
-}
-
-.card img {
-  margin: auto;
-  display: block;
-}
-
-.contenedor .monitorlg img {
-  height: 250px;
-  width: 300px;
-}
-
-.contenedor .monitorlg {
-  background-color: white;
-}
-
-.informacion {
-  height: 80px;
-  width: 100%;
-}
-
-.informacion h1 {
-  font-family: sans-serif;
-  font-size: 1.2em;
-  text-align: center;
-  color: #333;
-  margin-bottom: -10px;
-}
-
-.informacion p {
-  text-align: center;
-  font-family: sans-serif;
-  font-size: .9em;
-  color: #555;
-}
-
-.precio {
-  height: 50px;
-  width: 85%;
-  margin: auto;
-  font-family: sans-serif;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.box-precio {
-  width: 80px;
-}
-
-.carrito {
-  font-size: 1.5em;
-  color: #555;
-}
-
-nav {
-  background: white;
-  height: 80px;
-  width: 100%;
-  position: fixed;
-  border-bottom: 1px solid transparent;
-  box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, .2);
-  top: 0;
-  z-index: 100;
-}
-
-.enlace {
-  position: absolute;
-  padding: 20px 50px;
-}
-
-.logo {
-  height: 60px;
-}
-
-nav ul {
-  float: right;
-  margin-right: 330px;
-}
-
-nav ul li {
-  display: inline-block;
-  line-height: 80px;
-  margin: 0 5px;
-  margin-right: 20px;
-}
-
-nav ul li a {
-  color: black;
-  font-size: 18px;
-  padding: 7px 13px;
-  border-radius: 3px;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
-li a.active,
-li a:hover {
-  transition: .5s;
-
-}
-
-.checkbtn {
-  font-size: 30px;
-  color: black;
-  float: right;
-  line-height: 80px;
-  margin-right: 40px;
-  cursor: pointer;
-  display: none;
-}
-
-#check {
-  display: none;
-}
-
-@media (max-width: 952px) {
-  .enlace {
-    padding-left: 20px;
-  }
-
-  nav ul li a {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 858px) {
-  .checkbtn {
-    display: block;
-  }
-
-  ul {
-    position: fixed;
-    width: 60%;
-    height: 100vh;
-    background: hsl(0 0% 100% / 0.1);
-    top: 80px;
-    left: -100%;
-    text-align: center;
-    transition: all .5s;
-    backdrop-filter: blur(0, 50rem);
-
-  }
-
-  nav ul li {
-    display: block;
-    margin: 50px 0;
-    line-height: 40px;
-    text-size-adjust: 20px;
-  }
-
-  nav ul li a {
-    font-size: 25px;
-  }
-
-  li a:hover,
-  li a.active {
-    background: none;
-    color: rgb(66, 7, 66);
-  }
-
-  #check:checked~ul {
-    left: 0;
-  }
-}

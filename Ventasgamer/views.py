@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import Periferico
-from .forms import PerifericoForm, ContactoForm, UsuarioForm
+from .forms import PerifericoForm, ContactoForm, UseerForm,LoginForm
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from django.contrib.auth import authenticate, login
+
 
 # Create your views here.
 def home(request):
@@ -26,12 +27,12 @@ def contacto(request):
     return render (request, 'Ventasgamer/contacto.html', data)
 
 
-
-
 def monitores(request):
-    return render(request,'Ventasgamer/InterfazMonitores.html')
-
-
+    productos = Periferico.objects.all()
+    data = {
+        'entity': productos
+    }
+    return render (request, 'Ventasgamer/InterfazMonitores.html', data)
 
 
 
@@ -78,32 +79,41 @@ def Lista(request):
     datos = {
         'Periferico':periferico
     }
-    return render(request,'Ventasgamer/Lista_perifericos.html', datos)
+    return render(request,'Ventasgamer/interfazMonitores', datos)
 
 # 
 
 def registro(request):
-    datos ={
-        'forma':UsuarioForm()
+    datos = {
+        'forma': UseerForm()
     }
 
     if(request.method == 'POST'):
-        formulario = UsuarioForm(request.POST)
+        formulario = UseerForm(request.POST)
         if formulario.is_valid():
-            formulario.save()            
+            usuario = formulario.cleaned_data['username']
+            email = formulario.cleaned_data['email']
+            password_one = formulario.cleaned_data['password_one']
+            password_two = formulario.cleaned_data['password_two']
+            u = User.objects.create_user(
+                username=usuario, email=email, password=password_one)
+            u.save()
             datos['mensaje'] = 'registro exitoso'
         else:
             print(formulario.errors)
     return render(request, 'Ventasgamer/registro.html', datos)
     
+    
 def logiin (request):
     datos ={
-        'ini': UsuarioForm()
+        'ini': LoginForm()
     }
     if (request.method == 'POST'):
         usu1 = request.POST.get('username')
+        u = User.objects.get(username=usu1)
         pas= request.POST.get('password')
-        user = authenticate(request, username=usu1, password=pas)
+        token = Token.objects.get(user=u )
+        user = authenticate(request, username=usu1, password=pas, token=token)
         if user is not None:
             login(request, user)
             datos['mensaje']='inicio exitoso'
@@ -111,5 +121,18 @@ def logiin (request):
             print(usu1, pas)
     return render(request,'Ventasgamer/login.html', datos)
 
+def logout (request):
+    usu1 = request.POST.get('username')
+    pas= request.POST.get('password')
+    user = authenticate(request, username=usu1, password=pas)
+    if user is not None:
+        logout(request, user)
+        
+        return render(request,'musica/index.html')
 
-
+def tienda(request):
+    productos = Periferico.objects.all()
+    data = {
+        'enity' : productos
+    }
+    return render (request, 'Ventasgamer/shop.html', data)

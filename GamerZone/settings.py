@@ -151,7 +151,7 @@ SOCIALACCOUNT_PROVIDERS = {
             'email',
         ],
         'AUTH_PARAMS': {
-            'access_type': 'offline',
+            'access_type': 'online',
         }
     }
 }
@@ -176,3 +176,5 @@ ACCOUNT_EMAIL_CONFIRMARION_EXPIRE_DAYS = 4
 import os
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+SOCIALACCOUNT_LOGIN_ON_GET=True

@@ -25,6 +25,7 @@
             <td>{{p.modelo}}</td>
             <td>{{p.nombre}}</td>
             <td>{{p.precio}}</td>
+            <td>{{p.imagen.url}}</td>
             <td><a href="{% url 'modificar_periferico' p.idperiferico %}">Mod</a></td>
             <td><a href="{% url 'eliminar_periferico' p.idperiferico %}">X</a></td>
         </tr>
